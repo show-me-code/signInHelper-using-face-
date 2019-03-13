@@ -8,6 +8,8 @@ from PythonSDK.facepp import API,File
 # 导入图片处理类
 import PythonSDK.ImagePro
 
+from dataManagement import data_management
+
 # 以下四项是dmeo中用到的图片资源，可根据需要替换
 detech_img_url = 'http://bj-mc-prod-asset.oss-cn-beijing.aliyuncs.com/mc-official/images/face/demo-pic11.jpg'
 faceSet_img = './imgResource/img.jpg'       # 用于创建faceSet
@@ -45,21 +47,35 @@ face_string = ''
 face_string_2 = ''
 api.faceset.delete(outer_id='test2', check_empty=0)
 ret = api.faceset.create(outer_id = 'test2');
-res = api.detect(image_file = File(faceSet_img));
+res = api.detect(image_file = File(faceSet_img), return_attributes='emotion');
 print_result("detect resule", res);
 
 faceList = res["faces"];
 
+
 print(len(faceList));
-#for i in range(len(faceList)):
-#    api.faceset.addface(outer_id='test2', face_tokens=faceList[i]["face_token"]);
-#    print(faceList[i]["face_token"]);
+for i in range(len(faceList)):
+    api.faceset.addface(outer_id='test2', face_tokens=faceList[i]["face_token"]);
+    print(faceList[i]["face_token"]);
 
 for i in range(len(faceList)):
     faceStr.append(faceList[i]["face_token"])
 
+r = api.faceset.getdetail(outer_id='test2')
+print_result('faceset结果',r)
+'''data_manager = data_management()
+data_manager.init_emotion(faceStr)
+data_manager.add_emotion_data(faceList[0]['face_token'], faceList[0]['attributes']['emotion']['disgust'])
+data_manager.write_emotion_to_csv()
+mean_down = (faceList[0]['attributes']['emotion']['disgust'] + faceList[0]['attributes']['emotion']['anger']
+             + faceList[0]['attributes']['emotion']['fear'] + faceList[0]['attributes']['emotion']['sadness']) / 4
+mean_up = (faceList[0]['attributes']['emotion']['happiness'] + faceList[0]['attributes']['emotion']['neutral']) / 2
+print('情感：' + str(mean_down) + ' ' + str(mean_up))'''
+
+
 e = False;
-for i in range(0,len(faceList)):
+
+'''for i in range(0,len(faceList)):
     if((len(faceList) - i) >= 5):
         for j in range(i,5):
             if (face_string == ''):
@@ -79,7 +95,7 @@ for i in range(0,len(faceList)):
     resu = api.faceset.addface(outer_id = 'test2', face_tokens = face_string)
     print_result('result of addface', resu)
     if(e):
-        break
+        break'''
         
 img_set = [face_search_img, face_search_img2];
 

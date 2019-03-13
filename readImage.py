@@ -54,7 +54,7 @@ class read_image(QtWidgets.QWidget, read_image_Ui_Form):
         for (x, y, w, h) in faces:
             cv2.rectangle(self.image, (x, y), (x + w, y + h), (0, 255, 0), 2)
         self.label.setPixmap(QtGui.QPixmap.fromImage(show_image))
-        '''if(len(faces) == 1):
+        if(len(faces) == 1):
             #如果检测到了一张人脸，则记录当前帧并弹出窗口，停止计时器，关闭签到窗口
             cv2.imwrite(str(time.time())+'.jpg', self.image)
             notice = QtWidgets.QMessageBox.information(self, '成功',"您的签到照片已经成功保存")
@@ -62,7 +62,7 @@ class read_image(QtWidgets.QWidget, read_image_Ui_Form):
                 self.cap.release()
             if self.timer_camera.isActive():
                 self.timer_camera.stop()
-            ex.close()'''
+            ex.close()
 
     def close_window(self, event):
         ok = QtWidgets.QPushButton()

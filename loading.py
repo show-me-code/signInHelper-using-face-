@@ -17,8 +17,8 @@ class loading_Ui_Form(object):
         self.label = QtWidgets.QLabel('', self)
         self.label.setText("")
         self.setFixedSize(800, 650)
-        self.pix = QtGui.QPixmap(':/pic/uiResource/loading.gif')
-        self.label.setPixmap(self.pix)
+        #self.pix = QtGui.QPixmap(':/pic/uiResource/loading.gif')
+        #self.label.setPixmap(self.pix)
         self.label.setScaledContents(True)
 
         movie = QtGui.QMovie(":/pic/uiResource/loading.gif")
@@ -31,15 +31,23 @@ class loading_Ui_Form(object):
         _translate = QtCore.QCoreApplication.translate
         Form.setWindowTitle("请稍等")
 
-
 class loading_Ui_Dialog(QtWidgets.QWidget, loading_Ui_Form):
     def __init__(self):
         super(loading_Ui_Dialog, self).__init__()
         self.setupUi(self)
 import app_rc
 
-if __name__=="__main__":
+
+class Thread_loading(QtCore.QThread):
+    
+    def __init__(self):
+        super(Thread_loading, self).__init__()
+        self.loading = loading_Ui_Dialog()
+    def run(self):
+        self.loading.show()
+
+'''if __name__=="__main__":
     app = QtWidgets.QApplication(sys.argv)
     loading = loading_Ui_Dialog()
     loading.show()
-    sys.exit(app.exec_())
+    sys.exit(app.exec_())'''
