@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1261</width>
+    <height>926</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QPushButton" name="pushButton">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>120</y>
+      <width>151</width>
+      <height>141</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>添加面孔</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_2">
+    <property name="geometry">
+     <rect>
+      <x>290</x>
+      <y>120</y>
+      <width>141</width>
+      <height>141</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>删除面孔</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_startSignIn">
+    <property name="geometry">
+     <rect>
+      <x>480</x>
+      <y>120</y>
+      <width>141</width>
+      <height>141</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>发起签到</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_signIn">
+    <property name="geometry">
+     <rect>
+      <x>670</x>
+      <y>120</y>
+      <width>151</width>
+      <height>141</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>签到</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_4">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>300</y>
+      <width>150</width>
+      <height>141</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>显示到位图</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_5">
+    <property name="geometry">
+     <rect>
+      <x>260</x>
+      <y>300</y>
+      <width>271</width>
+      <height>141</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>分析低到位率学生</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_6">
+    <property name="geometry">
+     <rect>
+      <x>550</x>
+      <y>300</y>
+      <width>271</width>
+      <height>141</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>分析高到位率学生</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_7">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>480</y>
+      <width>150</width>
+      <height>141</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>给出到位建议</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1261</width>
+     <height>37</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources>
+  <include location="app.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>pushButton</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>addNewFace()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>207</x>
+     <y>214</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>189</x>
+     <y>391</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_2</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>deleteFace()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>375</x>
+     <y>225</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>387</x>
+     <y>414</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btn_startSignIn</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>startSignIn()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>668</x>
+     <y>266</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>824</x>
+     <y>479</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btn_signIn</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>signIn()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>826</x>
+     <y>273</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>913</x>
+     <y>365</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_4</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>showArriveDiagram()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>200</x>
+     <y>442</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>205</x>
+     <y>578</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_5</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>analyzeLowRateStu()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>346</x>
+     <y>456</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>310</x>
+     <y>660</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_6</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>analyzeHighRateStu()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>476</x>
+     <y>449</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>555</x>
+     <y>656</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <signal>signal1()</signal>
+  <slot>addNewFace()</slot>
+  <slot>deleteFace()</slot>
+  <slot>searchFace()</slot>
+  <slot>choosePic()</slot>
+  <slot>startSignIn()</slot>
+  <slot>signIn()</slot>
+  <slot>showArriveDiagram()</slot>
+  <slot>analyzeLowRateStu()</slot>
+  <slot>analyzeHighRateStu()</slot>
+ </slots>
+</ui>
