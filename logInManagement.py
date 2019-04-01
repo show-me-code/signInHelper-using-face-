@@ -11,7 +11,6 @@ user_name = ""
 password = ""
 file_name = "user_info.txt"
 
-
 class logIn_manager(QtWidgets.QMainWindow, logIn_MainWindow):
     def __init__(self):
         super(logIn_manager,self).__init__()

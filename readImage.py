@@ -3,7 +3,6 @@ import cv2
 from PyQt5 import QtCore, QtGui, QtWidgets
 from readImageUI import read_image_Ui_Form
 import time
-import os
 
 class read_image(QtWidgets.QWidget, read_image_Ui_Form):
     def __init__(self):
@@ -14,14 +13,11 @@ class read_image(QtWidgets.QWidget, read_image_Ui_Form):
         self.CAM_NUM = 1
         self.slot_init()
         self.setupUi(self)
-
         self.faces = []
-       
 
     def slot_init(self):
         #开始定制捕获图片
         self.timer_camera.timeout.connect(self.show_camera)
-
 
     def on_click_open(self):
         if(self.timer_camera.isActive() == False):
@@ -31,12 +27,12 @@ class read_image(QtWidgets.QWidget, read_image_Ui_Form):
                                                     defaultButton=QtWidgets.QMessageBox.Ok)
             else:
                 self.timer_camera.start(3)
-                self.opencamera.setText("关闭相机")
+                self.opencamera.setText("刷新相机")
         else:
             self.timer_camera.stop()
             self.cap.release()
             self.label.clear()
-            self.opencamera.setText('打开相机')
+            self.opencamera.setText('刷新相机')
 
     def show_camera(self):
         #载入cv2的人脸识别标签
@@ -49,8 +45,7 @@ class read_image(QtWidgets.QWidget, read_image_Ui_Form):
         #变为灰度图，将侦测到的人脸信息记录
         gray = cv2.cvtColor(self.image, cv2.COLOR_BGR2GRAY)
         faces = detector.detectMultiScale(gray, 1.3, 5)
-        print(faces + len(faces))
-
+        #print(faces + len(faces))
         for (x, y, w, h) in faces:
             cv2.rectangle(self.image, (x, y), (x + w, y + h), (0, 255, 0), 2)
         self.label.setPixmap(QtGui.QPixmap.fromImage(show_image))
@@ -62,7 +57,7 @@ class read_image(QtWidgets.QWidget, read_image_Ui_Form):
                 self.cap.release()
             if self.timer_camera.isActive():
                 self.timer_camera.stop()
-            ex.close()
+            self.close()
 
     def close_window(self, event):
         ok = QtWidgets.QPushButton()

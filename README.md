@@ -1,7 +1,7 @@
 # FacePlusPlus Python SDK
 
-* 集成运行文档请查看目录下的文件`Python SDK demo 使用文档.pdf` 
-
-* 如果集成中有问题,请[联系我们](https://www.faceplusplus.com.cn/contact-us/)
+* 这是一个基于face++的考勤系统
+* 包括了人脸识别和情绪识别
+* 这一系统还可以通过记录表情反馈信息，给予管理者建议
 
 
